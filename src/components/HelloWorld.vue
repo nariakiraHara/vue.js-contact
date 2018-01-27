@@ -5,12 +5,13 @@
     <h1>メールアドレス</h1>
     <h2>{{email}}</h2>
     <textarea v-model="message" placeholder="メッセージを入力してください。"/>
-    <button v-on:click="send">送信</button>
+    <button v-on:click="sendMessage">送信</button>
   </div>
 </template>
 <script>
 import firebase from 'firebase'
-import authnicateUser from 'auth'
+import firebaseApp from '../firebaseApp.js'
+import authnicateUser from '../auth.js'
 
 export default {
   name: 'userInfo',
@@ -27,17 +28,16 @@ export default {
     })
   },
   methods: {
-    send: function(event) {
+    sendMessage: function( event) {
       if(!this.message) {
         alert('メッセージを入力してください。')
-        return false;
+        return false
       }
       if(alert('メッセージを送信します。\\nよろしいですか??')) {
         firebase.database().ref('contact/').push({
           userName: this.userName,
           userEmail: this.email,
           message: this.message,
-          userID: user.userid
         });
       }
     }
