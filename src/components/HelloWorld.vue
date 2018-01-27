@@ -4,24 +4,43 @@
     <h2>{{userName}}</h2>
     <h1>メールアドレス</h1>
     <h2>{{email}}</h2>
+    <textarea v-model="message" placeholder="メッセージを入力してください。"/>
+    <button v-on:click="send">送信</button>
   </div>
 </template>
 <script>
+import firebase from 'firebase'
+import authnicateUser from 'auth'
+
 export default {
   name: 'userInfo',
+  data() {
+    return {
+        userName: '',
+        email: ''
+    }
+  },
   created: function() {
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-        const userInfo = initUser(user);
-        userName: userInfo.userName
-        email: userInfo.email
-      } else {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        firebase.auth().signInWithRedirect(provider);
-        // User is signed out.
+    authnicateUser().then((user)=> {
+      userName: user.displayName
+      email: user.email
+    })
+  },
+  methods: {
+    send: function(event) {
+      if(!this.message) {
+        alert('メッセージを入力してください。')
+        return false;
       }
-    });
+      if(alert('メッセージを送信します。\\nよろしいですか??')) {
+        firebase.database().ref('contact/').push({
+          userName: this.userName,
+          userEmail: this.email,
+          message: this.message,
+          userID: user.userid
+        });
+      }
+    }
   }
 }
 </script>
