@@ -12,34 +12,44 @@
 import firebase from 'firebase'
 import firebaseApp from '../firebaseApp.js'
 import authnicateUser from '../auth.js'
+import router from '../router'
 
 export default {
   name: 'userInfo',
   data() {
     return {
         userName: '',
-        email: ''
+        email: '',
+        userId: '',
+        message: ''
     }
   },
   created: function() {
     authnicateUser().then((user)=> {
-      userName: user.displayName
-      email: user.email
+      this.userName = user.displayName
+      this.email = user.email
+      this.userId = user.uid
     })
   },
   methods: {
-    sendMessage: function( event) {
+    sendMessage: function(event) {
+      // メッセージ送信後にtextareaを初期化するとparamも消えるのでパラメータ用変数定義
+      let paramMessage = this.message
       if(!this.message) {
         alert('メッセージを入力してください。')
         return false
       }
-      if(alert('メッセージを送信します。\\nよろしいですか??')) {
+      if(confirm('メッセージを送信します。\r\nよろしいですか??')) {
         firebase.database().ref('contact/').push({
           userName: this.userName,
           userEmail: this.email,
           message: this.message,
+          userID: this.userId
+        }).then(() => {
+          router.push({name: 'exe', params: {userName: this.userName, message: paramMessage}})
         });
       }
+      this.message = ''
     }
   }
 }

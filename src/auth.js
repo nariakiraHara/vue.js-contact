@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-import firebaseApp from 'firebaseApp.js'
+import firebaseApp from './firebaseApp'
 const provider = new firebase.auth.GoogleAuthProvider();
 export default function authenticateUser () {
     return new Promise((resolve, reject) => {
