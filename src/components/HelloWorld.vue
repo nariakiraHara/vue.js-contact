@@ -46,7 +46,6 @@ export default {
           message: this.message,
           userID: this.userId
         }).then((contactInfo) => {
-          console.log(contactInfo)
           router.push({name: 'ContactConfirmation', params: {id: contactInfo.key}})
         });
       }
