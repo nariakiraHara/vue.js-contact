@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
-import Execute from '@/components/Execute'
+import ContactConfirmation from '@/components/ContactConfirmation'
 
 Vue.use(Router)
 
@@ -13,9 +13,9 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/execute',
-      name: 'exe',
-      component: Execute
+      path: '/contacts/:id/confirmation',
+      name: 'ContactConfirmation',
+      component: ContactConfirmation
     }
   ]
 })

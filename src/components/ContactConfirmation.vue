@@ -10,13 +10,21 @@
 </template>
 
 <script>
+import firebase from 'firebase'
+
 export default {
   name: 'inquiryInfo',
   data() {
     return {
-      userName: this.$route.params.userName,
-      message: this.$route.params.message
+      userName: '',
+      message: ''
     }
+  },
+  created() {
+  firebase.database().ref('contact/' + this.$route.params.id).once('value').then((snapshot) => {
+    this.userName = snapshot.val().userName
+    this.message = snapshot.val().message
+  });
   }
 }
 </script>

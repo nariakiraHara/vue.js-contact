@@ -45,8 +45,9 @@ export default {
           userEmail: this.email,
           message: this.message,
           userID: this.userId
-        }).then(() => {
-          router.push({name: 'exe', params: {userName: this.userName, message: paramMessage}})
+        }).then((contactInfo) => {
+          console.log(contactInfo)
+          router.push({name: 'ContactConfirmation', params: {id: contactInfo.key}})
         });
       }
       this.message = ''
