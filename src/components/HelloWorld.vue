@@ -4,8 +4,9 @@
     <h2>{{userName}}</h2>
     <h1>メールアドレス</h1>
     <h2>{{email}}</h2>
-    <textarea v-model="message" placeholder="メッセージを入力してください。"/>
-    <button v-on:click="sendMessage">送信</button>
+    <el-input type="textarea" autosize placeholder="Please input" v-model="message">
+    </el-input>
+    <el-button type="primary" v-on:click="sendMessage">送信</el-button>
   </div>
 </template>
 <script>
