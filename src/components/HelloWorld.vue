@@ -43,13 +43,14 @@ export default {
         return false
       }
       if(confirm('メッセージを送信します。\r\nよろしいですか??')) {
-        firebase.database().ref('contact/').push({
+        firebase.firestore().collection("contact").add({
           userName: this.userName,
           userEmail: this.email,
           message: this.message,
           userID: this.userId
         }).then((contactInfo) => {
-          router.push({name: 'ContactConfirmation', params: {id: contactInfo.key}})
+          console.log(contactInfo)
+          router.push({name: 'ContactConfirmation', params: {id: contactInfo.id}})
         });
       }
       this.message = ''

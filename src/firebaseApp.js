@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueFire from 'vuefire'
 import firebase from 'firebase'
+require("firebase/firestore")
 
 Vue.use(VueFire)
 

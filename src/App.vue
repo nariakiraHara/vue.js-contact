@@ -9,7 +9,7 @@
 import headerItem from './components/HeaderItem'
 export default {
   name: 'app',
-    components : {
+  components : {
     headerItem
   }
 }
