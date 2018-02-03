@@ -29,7 +29,3 @@ exports.onCreateContact = functions.database.ref('/contact/{contactId}').onCreat
 
 // 個別の関数のデプロイ
 // firebase deploy --only functions:関数名
-
-// exports.関数名 = functions.トリガー{
-// 任意の処理
-//}

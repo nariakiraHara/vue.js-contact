@@ -1,11 +1,14 @@
 <template>
   <div class="inquiryInfo">
-    <h1>お問い合わせありがとうございました。</h1>
-    <h2>以下がお問い合わせいただいた内容となります。ご確認ください。</h2>
+    <h2>お問い合わせありがとうございました。</h2>
+    <hr>
+    <h3>以下がお問い合わせいただいた内容となります。ご確認ください。</h3>
     <h3>お客様情報</h3>
-    <h3>氏名：{{userName}}</h3>
-    <h3>お問い合わせ内容：</h3>
-    <h3>{{message}}</h3>
+    <hr>
+    <h4>氏名</h4>
+    <h4>{{userName}}</h4>
+    <h3>お問い合わせ内容</h3>
+    <h4>{{message}}</h4>
   </div>
 </template>
 
@@ -28,3 +31,14 @@ export default {
   }
 }
 </script>
+<style>
+  div {
+    margin-left: 100px;
+  }
+  hr {
+  text-align: left;
+  margin-left: 0px;
+  width: 40%;
+}
+</style>
+

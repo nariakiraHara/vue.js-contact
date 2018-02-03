@@ -9,7 +9,7 @@
 import headerItem from './components/HeaderItem'
 export default {
   name: 'app',
-  components : {
+    components : {
     headerItem
   }
 }
@@ -21,7 +21,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
   padding-left: 80px;
 }
 </style>

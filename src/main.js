@@ -6,10 +6,15 @@ import router from './router'
 import ElementUI from 'element-ui'
 import locale from 'element-ui/lib/locale/lang/ja'
 import 'element-ui/lib/theme-chalk/index.css'
-import { Button, Select } from 'element-ui'
+import { Button, Select, Input, Header, Menu, MenuItem, Submenu } from 'element-ui'
 
 Vue.component(Button.name, Button)
 Vue.component(Select.name, Select)
+Vue.use(Input)
+Vue.use(Header)
+Vue.use(Menu)
+Vue.use(MenuItem)
+Vue.use(Submenu)
 
 Vue.config.productionTip = false
 

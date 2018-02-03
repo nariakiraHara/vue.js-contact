@@ -1,11 +1,13 @@
 <template>
   <div class="userInfo">
-    <h1>ユーザー名</h1>
-    <h2>{{userName}}</h2>
-    <h1>メールアドレス</h1>
-    <h2>{{email}}</h2>
-    <el-input type="textarea" autosize placeholder="Please input" v-model="message">
-    </el-input>
+    <h2>ユーザー名</h2>
+    <hr>
+    <h3>{{userName}}</h3>
+    <h2>メールアドレス</h2>
+    <hr>
+    <h3>{{email}}</h3><br><br>
+    <el-input type="textarea" :rows="5" size="mini" placeholder="Please input" v-model="message">
+    </el-input><br><br>
     <el-button type="primary" v-on:click="sendMessage">送信</el-button>
   </div>
 </template>
@@ -61,6 +63,11 @@ export default {
 h1, h2 {
   font-weight: normal;
 }
+hr {
+  text-align: left;
+  margin-left: 0px;
+  width: 20%;
+}
 ul {
   list-style-type: none;
   padding: 0;
@@ -72,4 +79,5 @@ li {
 a {
   color: #42b983;
 }
+
 </style>
