@@ -6,7 +6,7 @@
     <h2>メールアドレス</h2>
     <hr>
     <h3>{{email}}</h3><br><br>
-    <el-input type="textarea" :rows="5" size="mini" placeholder="Please input" v-model="message">
+    <el-input type="textarea" size="medium" rows="5" placeholder="内容を入力してください" v-model="message">
     </el-input><br><br>
     <el-button type="primary" v-on:click="sendMessage">送信</el-button>
   </div>
@@ -61,6 +61,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+div {
+  text-align: left;
+  margin-right: 1000px;
+}
 h1, h2 {
   font-weight: normal;
 }
