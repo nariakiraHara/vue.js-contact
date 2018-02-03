@@ -60,6 +60,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+div {
+  margin-right: 1000px;
+}
 h1, h2 {
   font-weight: normal;
 }
